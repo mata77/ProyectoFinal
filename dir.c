@@ -57,7 +57,6 @@ int main (){
       }
   }
 
-
   printf( "Matriz de adyacencia:\n\n" );//verifica que la matriz se imprima como se introdujo
 	for (i=0;i<n;i++) {
     for (j=1;j<=n;j++){
