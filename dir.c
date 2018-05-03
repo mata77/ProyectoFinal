@@ -33,7 +33,6 @@ int siguiente (proximoNodo **, int, nodoTopologia *);
 void quitaNodo(proximoNodo **, int);
 int primero (proximoNodo **);
 void imprimeNodos (proximoNodo *);
-
 void direccionamiento (int nodos, int **matriz, int origen, int destino);
 
 int main (){
@@ -108,4 +107,31 @@ void direccionamiento (int nodos, int **matriz, int origen, int destino){ //esta
 
 
 
+}
+int inserta (proximoNodo ** sigNodo, int numNodo, nodoTopologia * Nodo){
+  proximoNodo *nodoNuevo, *nodoActual, *nodoAnterior;
+  if((nodoNuevo=malloc(sizeof(proxicmoNodo)))==NULL){
+    return 1;
+  }
+  nodoActual= *nodoContinuo;//recorre la fla hasta encontrar el nodo de menor peso
+  nodoAnterior=NULL;
+  while(nodoActual!=NULL && Nodo[nodoActual->dato].costo<Nodo[numNodo].costo){
+    nodoAnterior=nodoActual;
+    nodoActual=nodoActual->siguienteNodo;
+  }
+  //cuando encontro el menor movera el nodo actual para tomarlo como nuevo nodo de partida 
+  nodoNuevo->dato = numNodo;
+  if(nodoActual!=NULL){
+    nodoNuevo->siguienteNodo=nodoActual;
+  }
+  else{
+    nodoNuevo->siguienteNodo=NULL;
+  }
+  if(nodoAnterior!=NULL){
+    nodoAnterior->siguienteNodo=nodoNuevo;
+  }
+  else{
+    *nodoContinuo=nodoNuevo;
+  }
+  return 0;
 }
