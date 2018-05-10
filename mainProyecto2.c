@@ -14,7 +14,7 @@ int main()
 {
     int eleccion,i,j,numNodos;
     int topologia[100][100]={0};
-    char nodosCaC[300];
+    char nodosCaC[10000];
     char *nombreNodos[100];
 
     numNodos= leeArchivo(topologia,nombreNodos,nodosCaC);
